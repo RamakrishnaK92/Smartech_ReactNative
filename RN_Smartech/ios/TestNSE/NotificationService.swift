@@ -16,6 +16,7 @@ class NotificationService: UNNotificationServiceExtension {
     //...
   if SmartPush.sharedInstance().isNotification(fromSmartech:request.content.userInfo){
       smartechServiceExtension.didReceive(request, withContentHandler: contentHandler)
+      // pn_delivered -> CE panel, it will record the count
     }
     //...
   }

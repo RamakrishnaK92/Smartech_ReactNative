@@ -1,12 +1,12 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
- platform :ios, '12.4'
+# platform :ios, '14.0'
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'ReactNativeTypeScriptExamples' do
   config = use_native_modules!
-
+  
   # React Native Maps dependencies
   # # rn_maps_path = '../node_modules/react-native-maps'
   # # pod 'react-native-google-maps', :path => rn_maps_path
@@ -37,24 +37,24 @@ target 'ReactNativeTypeScriptExamples' do
     # Pods for testing
   end
 
-#  post_install do |installer|
-#    react_native_post_install(
-#      installer,
-#      # Set `mac_catalyst_enabled` to `true` in order to apply patches
-#      # necessary for Mac Catalyst builds
-#      :mac_catalyst_enabled => false
-#    )
-#    __apply_Xcode_12_5_M1_post_install_workaround(installer)
-#  end
+ post_install do |installer|
+   react_native_post_install(
+     installer,
+     # Set `mac_catalyst_enabled` to `true` in order to apply patches
+     # necessary for Mac Catalyst builds
+     :mac_catalyst_enabled => false
+   )
+  #  __apply_Xcode_12_5_M1_post_install_workaround(installer)
+ end
 end
 
 target 'TestNSE' do
  
   # Pods for testing
-  pod 'SmartPush-iOS-SDK', '~> 3.4.1'
+  pod 'SmartPush-iOS-SDK', '~> 3.5.0'
 end
 target 'TestNCE' do
  
   # Pods for testing
-  pod 'SmartPush-iOS-SDK', '~> 3.4.1'
+  pod 'SmartPush-iOS-SDK', '~> 3.5.0'
 end
