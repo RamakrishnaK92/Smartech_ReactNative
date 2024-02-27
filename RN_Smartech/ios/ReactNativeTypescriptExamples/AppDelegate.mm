@@ -34,7 +34,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface AppDelegate () <SmartechDelegate, RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate, UNUserNotificationCenterDelegate> {
   
-//  NSMutableDictionary *smtDeeplinkData;
   
   RCTTurboModuleManager *_turboModuleManager;
   RCTSurfacePresenterBridgeAdapter *_bridgeAdapter;
@@ -48,7 +47,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface AppDelegate () <SmartechDelegate, UNUserNotificationCenterDelegate> {
   
-  // NSMutableDictionary *smtDeeplinkData;
   
 }
 @end
@@ -188,34 +186,14 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 #pragma mark Smartech Deeplink Delegate
 
-// - (void)handleDeeplinkActionWithURLString:(NSString *)deeplinkURLString andCustomPayload:(NSDictionary *_Nullable)customPayload {
-  
-//   NSMutableDictionary *smtData = [[NSMutableDictionary alloc] init];
-//   NSLog(@"DEEPLINK: %@",deeplinkURLString);
-//   smtData[kSMTDeeplinkIdentifier] = deeplinkURLString ? deeplinkURLString : @"";
-//   smtData[kSMTCustomPayloadIdentifier] = customPayload ? customPayload : @{};
-//   smtDeeplinkData = smtData;
-  
-//   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//     NSLog(@"DelayAdded 1 sec: %@",deeplinkURLString);
-//       [[NSNotificationCenter defaultCenter] postNotificationName:kSMTDeeplinkNotificationIdentifier object:nil userInfo:smtData];
-//     });
-
-// }
-
-// - (void)handleNotificationInTerminatedSate:(NSNotification *)notification {
-//   if (smtDeeplinkData.count > 0) {
-//     [self handleDeeplinkActionWithURLString:smtDeeplinkData[kSMTDeeplinkIdentifier] andCustomPayload:smtDeeplinkData[kSMTCustomPayloadIdentifier]];
-//     smtDeeplinkData = [[NSMutableDictionary alloc] init];
-//   }
-// }
 
 - (void)handleDeeplinkActionWithURLString:(NSString *)deeplinkURLString andNotificationPayload:(NSDictionary *)notificationPayload {
   NSMutableDictionary *smtData = [[NSMutableDictionary alloc] initWithDictionary:notificationPayload];
   smtData[kDeeplinkIdentifier] = smtData[kSMTDeeplinkIdentifier];
   smtData[kCustomPayloadIdentifier] = smtData[kSMTCustomPayloadIdentifier];
   
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5* NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     NSLog(@"SMTLOGGER DEEPLINK: %@",deeplinkURLString);
     [[NSNotificationCenter defaultCenter] postNotificationName:kSMTDeeplinkNotificationIdentifier object:nil userInfo:smtData];
   });
