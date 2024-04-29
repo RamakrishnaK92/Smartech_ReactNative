@@ -198,6 +198,8 @@
   
 
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5* NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5* NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     NSLog(@"SMTLOGGER DEEPLINK: %@",deeplinkURLString);
     [[NSNotificationCenter defaultCenter] postNotificationName:kSMTDeeplinkNotificationIdentifier object:nil userInfo:smtData];
   });
