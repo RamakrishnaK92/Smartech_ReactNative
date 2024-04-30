@@ -15,30 +15,13 @@ const App: React.FunctionComponent = (props) => {
     console.log('SMTLogger RN Smartech CustomPayload:: ', smartechData.smtCustomPayload);
   };
 useEffect(() => {
+//@ts-ignore
+ SmartechReact.addListener(SmartechReact.SmartechDeeplink,handleDeeplinkWithNotificationPayload)
+  console.log(SmartechReact.SmartechDeeplink)
 
-  SmartechReact.addListener(SmartechReact.SmartechDeeplink,handleDeeplinkWithNotificationPayload)
- 
-
-      // Deeplink callback for Push Notification, InappMessage and AppInbox
   
-  // console.log(SmartechReact.SmartechDeeplink)
-
-  SmartechPushReact.getDeepLinkUrl(function (smartechData:any) {
-  console.log('Smartech Data ::', smartechData);
-  // Handling the SDK Deeplink Callback.
-  console.log('Smartech Deeplink :: ', smartechData.smtDeeplink);
-  console.log('Smartech CustomPayload:: ', smartechData.smtCustomPayload);
-})
-
-});
-
  //Remove this listener on cleanup
  //  SmartechReact.removeListener(SmartechReact.SmartechDeeplink);
 })
 };
-
-
-
- 
-}
 export default App;
