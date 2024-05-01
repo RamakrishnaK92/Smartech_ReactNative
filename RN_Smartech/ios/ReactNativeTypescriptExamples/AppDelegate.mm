@@ -64,7 +64,7 @@
   //  NSDictionary *initProps = [self prepareInitialProps];
   //  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"ReactNativeTypeScriptExamples", initProps);
   //
-  self.moduleName = @"ReactNativeTypeScript";
+  self.moduleName = @"ReactNativeTypeScriptExamples";
   self.initialProps = @{};
 
   //  if (@available(iOS 13.0, *)) {
@@ -86,8 +86,9 @@
   //  self.window.rootViewController = rootViewController;
   //  [self.window makeKeyAndVisible];
   //
+  return YES;
   
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  // return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 ///// This method controls whether the `concurrentRoot`feature of React18 is turned on or off.

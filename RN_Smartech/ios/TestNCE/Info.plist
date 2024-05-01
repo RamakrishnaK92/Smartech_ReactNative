@@ -7,9 +7,17 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>UNNotificationExtensionCategory</key>
-			<string></string>
+			<array>
+				<string>SmartechCarouselLandscapeNotification</string>
+				<string>SmartechCarouselPortraitNotification</string>
+				<string>SmartechPN</string>
+			</array>
+			<key>UNNotificationExtensionDefaultContentHidden</key>
+			<true/>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
-			<real>1</real>
+			<real>0.25</real>
+			<key>UNNotificationExtensionUserInteractionEnabled</key>
+			<true/>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
 		<string>MainInterface</string>
@@ -20,8 +28,8 @@
 	<dict>
 		<key>SmartechAppGroup</key>
 		<string>group.com.netcore.SmartechApp</string>
-		<key>SmartechAppId</key>
-		<string>0e6fcbcb2600d8ea596051e8030be050</string>
+		<key>SmartechNotificationIcon</key>
+		<string>RNNCEIcon</string>
 	</dict>
 </dict>
 </plist>

@@ -4,8 +4,9 @@ import React, { useEffect } from 'react';
 // import GmailClone from './examples/3-gmail-clone/app/App';
 import SmartechReact from 'smartech-base-react-native';
 
+//@ts-ignore
+function App():React.JSX.Element {
 
-const App: React.FunctionComponent = (props) => {
   // Comment unwanted examples, return the example you want to display
 
 
@@ -17,8 +18,7 @@ const App: React.FunctionComponent = (props) => {
 useEffect(() => {
 //@ts-ignore
  SmartechReact.addListener(SmartechReact.SmartechDeeplink,handleDeeplinkWithNotificationPayload)
-  console.log(SmartechReact.SmartechDeeplink)
-
+  
   
  //Remove this listener on cleanup
  //  SmartechReact.removeListener(SmartechReact.SmartechDeeplink);
